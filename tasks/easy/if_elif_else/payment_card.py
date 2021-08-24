@@ -23,7 +23,10 @@ def hide_card_numbers(card_number: str) -> str:
     :rtype: str
     """
     # TODO написать свой код здесь
-    return None
+    if card_number.isnumeric():
+        return f'{card_number[:4]}********{card_number[12:]}'
+    else:
+        return 'Ошибка'
 
 
 if __name__ == '__main__':
