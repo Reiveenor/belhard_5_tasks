@@ -19,10 +19,20 @@
 
 
 def selection_sort(array: list) -> list:
+    for i in range(len(array) - 1):
+        min_value = i
+        for j in range(i + 1, len(array)):
+            if array[j] < array[min_value]:
+                min_value = j
+        if min_value != i:
+            temp = array[i]
+            array[i] = array[min_value]
+            array[min_value] = temp
     return array
 
 
 if __name__ == '__main__':
     assert selection_sort([2, 1, 5, 4, 7]) == [1, 2, 4, 5, 7]
     assert selection_sort([2, -5, -3, 3, 1, 2]) == [-5, -3, 1, 2, 2, 3]
+    assert selection_sort([2, 2, -3, 3, 1, -5]) == [-5, -3, 1, 2, 2, 3]
     print('Решено!')
